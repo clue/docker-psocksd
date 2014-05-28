@@ -1,8 +1,8 @@
 FROM ubuntu
 MAINTAINER Christian Lück <christian@lueck.tv>
 
-RUN echo "deb http://archive.ubuntu.com/ubuntu precise main universe" > /etc/apt/sources.list && apt-get update
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -y php5-cli git curl
+RUN DEBIAN_FRONTEND=noninteractive apt-get update && apt-get install -y \
+	php5-cli git curl
 
 RUN useradd -m -d /home/psocksd psocksd
 USER psocksd
